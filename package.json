@@ -5,14 +5,12 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
-    "start": "tsx server.ts",
+    "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@react-router/express": "^7.13.2",
     "@react-router/node": "7.13.2",
     "@react-router/serve": "7.13.2",
-    "express": "^5.2.1",
     "isbot": "^5.1.36",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -21,12 +19,10 @@
   "devDependencies": {
     "@react-router/dev": "7.13.2",
     "@tailwindcss/vite": "^4.2.2",
-    "@types/express": "^5.0.6",
     "@types/node": "^22",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "tailwindcss": "^4.2.2",
-    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "^7.1.7",
     "vite-tsconfig-paths": "^5.1.4"

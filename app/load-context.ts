@@ -1,32 +1,21 @@
 /**
- * Augments the React Router `AppLoadContext` interface to include
- * server-side environment values injected via `getLoadContext`.
+ * Server-side environment utilities.
+ *
+ * These values are read from `process.env` at **build time** when routes are
+ * pre-rendered. Set them in `.env` (see `.env.example`) before running
+ * `npm run build`.
  *
  * @module load-context
  */
 
-declare module "react-router" {
-  /**
-   * Values available to every server loader and action via the
-   * `context` argument.
-   */
-  interface AppLoadContext {
-    /** GitHub username read from the `GITHUB_USERNAME` environment variable. */
-    githubUsername: string;
-  }
-}
-
 /**
- * Builds the load context object from the current process environment.
+ * GitHub username used to construct raw-content URLs when fetching
+ * per-project `ABOUT.md` files.
  *
- * This function is called once per request by the server (both the Vite
- * dev server and the custom production server) and its return value is
- * forwarded to every loader / action as the `context` argument.
- *
- * @returns The populated {@link AppLoadContext}.
+ * @example
+ * ```ts
+ * import { GITHUB_USERNAME } from "~/load-context";
+ * const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${slug}/main/ABOUT.md`;
+ * ```
  */
-export function getLoadContext() {
-  return {
-    githubUsername: process.env.GITHUB_USERNAME ?? "",
-  };
-}
+export const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? "";
