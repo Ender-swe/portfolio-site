@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router";
 import { GITHUB_USERNAME } from "~/load-context";
 import { projects } from "~/data/projects";
 import type { Project } from "~/data/projects";
@@ -32,12 +31,12 @@ function ProjectCard({ project }: ProjectCardProps) {
     <article className="flex flex-col gap-4 rounded-lg border border-[var(--color-surface)] bg-[var(--color-surface)] p-6 hover:border-[var(--color-accent)] transition-colors">
       {/* Project name — link to detail page only when hasAbout is true */}
       {hasAbout ? (
-        <Link
-          to={`/projects/${slug}`}
+        <a
+          href={`projects/${slug}/`}
           className="text-xl font-semibold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-all hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]"
         >
           {name}
-        </Link>
+        </a>
       ) : (
         <h3 className="text-xl font-semibold text-[var(--color-text)]">
           {name}
