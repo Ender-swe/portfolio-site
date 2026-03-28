@@ -19,3 +19,27 @@
  * ```
  */
 export const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? "";
+
+/**
+ * Full display name shown in the Hero section.
+ * Set via the `PORTFOLIO_NAME` environment variable.
+ */
+export const PORTFOLIO_NAME = process.env.PORTFOLIO_NAME ?? "";
+
+/**
+ * Contact email address shown in the Hero section.
+ * Set via the `PORTFOLIO_EMAIL` environment variable.
+ */
+export const PORTFOLIO_EMAIL = process.env.PORTFOLIO_EMAIL ?? "";
+
+/**
+ * Contact phone number shown in the Hero section.
+ * Set via the `PORTFOLIO_PHONE` environment variable.
+ */
+export const PORTFOLIO_PHONE = process.env.PORTFOLIO_PHONE ?? "";
+
+/**
+ * LinkedIn profile URL shown in the Hero section.
+ * Set via the `PORTFOLIO_LINKEDIN_URL` environment variable.
+ */
+export const PORTFOLIO_LINKEDIN_URL = process.env.PORTFOLIO_LINKEDIN_URL ?? "";
