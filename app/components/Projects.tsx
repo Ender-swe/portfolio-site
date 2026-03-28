@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { GITHUB_USERNAME } from "~/load-context";
 import { projects } from "~/data/projects";
 import type { Project } from "~/data/projects";
+import { fadeUpVariants, staggerContainer } from "~/lib/animations";
 
 // ---------------------------------------------------------------------------
 // Sub-component: ProjectCard
@@ -103,19 +105,30 @@ function ProjectCard({ project }: ProjectCardProps) {
 export function Projects() {
   return (
     <section id="projects" className="px-4 py-20">
-      <div className="max-w-5xl mx-auto flex flex-col gap-10">
+      <motion.div
+        className="max-w-5xl mx-auto flex flex-col gap-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
+        <motion.h2
+          variants={fadeUpVariants}
+          className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]"
+        >
           Projects
-        </h2>
+        </motion.h2>
 
         {/* Card grid */}
         <div className="grid gap-6 sm:grid-cols-2">
           {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <motion.div key={project.slug} variants={fadeUpVariants}>
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

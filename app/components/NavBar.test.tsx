@@ -27,7 +27,6 @@ describe("NavBar", () => {
       { label: "Projects", href: "#projects" },
       { label: "Education", href: "#education" },
       { label: "Experience", href: "#experience" },
-      { label: "Skills", href: "#skills" },
     ];
     for (const { label, href } of expectedAnchors) {
       const link = screen.getByRole("link", { name: label });
@@ -63,6 +62,5 @@ describe("NavBar", () => {
     expect(hrefs).toContain("#projects");
     expect(hrefs).toContain("#education");
     expect(hrefs).toContain("#experience");
-    expect(hrefs).toContain("#skills");
   });
 });

@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { experience } from "~/data/experience";
 import type { ExperienceEntry } from "~/data/experience";
+import { fadeUpVariants, staggerContainer } from "~/lib/animations";
 
 // ---------------------------------------------------------------------------
 // Sub-component: ExperienceCard
@@ -71,19 +73,30 @@ function ExperienceCard({ entry }: ExperienceCardProps) {
 export function Experience() {
   return (
     <section id="experience" className="px-4 py-20">
-      <div className="max-w-5xl mx-auto flex flex-col gap-10">
+      <motion.div
+        className="max-w-5xl mx-auto flex flex-col gap-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
+        <motion.h2
+          variants={fadeUpVariants}
+          className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]"
+        >
           Experience
-        </h2>
+        </motion.h2>
 
         {/* Cards */}
         <div className="flex flex-col gap-6">
           {experience.map((entry) => (
-            <ExperienceCard key={entry.organisation} entry={entry} />
+            <motion.div key={entry.organisation} variants={fadeUpVariants}>
+              <ExperienceCard entry={entry} />
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

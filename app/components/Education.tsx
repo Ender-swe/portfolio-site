@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { education } from "~/data/education";
 import type { EducationEntry } from "~/data/education";
+import { fadeUpVariants, staggerContainer } from "~/lib/animations";
 
 // ---------------------------------------------------------------------------
 // Sub-component: EducationCard
@@ -55,21 +57,34 @@ function EducationCard({ entry }: EducationCardProps) {
 export function Education() {
   return (
     <section id="education" className="px-4 py-20">
-      <div className="max-w-5xl mx-auto flex flex-col gap-10">
+      <motion.div
+        className="max-w-5xl mx-auto flex flex-col gap-10"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {/* Heading */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
+        <motion.h2
+          variants={fadeUpVariants}
+          className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]"
+        >
           Education
-        </h2>
+        </motion.h2>
 
         {/* Cards */}
         <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
           {education.map((entry) => (
-            <div key={entry.institution} className="sm:flex-1 min-w-[260px]">
+            <motion.div
+              key={entry.institution}
+              variants={fadeUpVariants}
+              className="sm:flex-1 min-w-[260px]"
+            >
               <EducationCard entry={entry} />
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
 import {
   GITHUB_USERNAME,
   PORTFOLIO_NAME,
   PORTFOLIO_LINKEDIN_URL,
 } from "~/load-context";
+import { fadeUpVariants, staggerContainer } from "~/lib/animations";
 
 function GitHubIcon() {
   return (
@@ -40,27 +42,44 @@ export function Hero() {
       id="hero"
       className="min-h-[calc(100vh-56px)] mt-14 flex items-center justify-center px-4"
     >
-      <div className="max-w-5xl w-full mx-auto py-16 flex flex-col gap-8">
+      <motion.div
+        className="max-w-5xl w-full mx-auto py-16 flex flex-col gap-8"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Greeting tag */}
-        <span className="text-sm font-mono text-[var(--color-accent)] tracking-widest uppercase">
+        <motion.span
+          variants={fadeUpVariants}
+          className="text-sm font-mono text-[var(--color-accent)] tracking-widest uppercase"
+        >
           Hello, world
-        </span>
+        </motion.span>
 
         {/* Name */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-[var(--color-text)] leading-tight">
+        <motion.h1
+          variants={fadeUpVariants}
+          className="text-5xl sm:text-6xl md:text-7xl font-bold text-[var(--color-text)] leading-tight"
+        >
           {PORTFOLIO_NAME || "Your Name"}
-        </h1>
+        </motion.h1>
 
         {/* Divider accent */}
-        <div className="w-16 h-1 rounded-full bg-[var(--color-accent)]" />
+        <motion.div
+          variants={fadeUpVariants}
+          className="w-16 h-1 rounded-full bg-[var(--color-accent)]"
+        />
 
         {/* Short bio */}
-        <p className="text-lg sm:text-xl text-[var(--color-muted)] max-w-xl leading-relaxed">
+        <motion.p
+          variants={fadeUpVariants}
+          className="text-lg sm:text-xl text-[var(--color-muted)] max-w-xl leading-relaxed"
+        >
           Computer Science student, USMC veteran, software developer.
-        </p>
+        </motion.p>
 
         {/* Social / contact links */}
-        <div className="flex flex-wrap gap-4 mt-2">
+        <motion.div variants={fadeUpVariants} className="flex flex-wrap gap-4 mt-2">
           {GITHUB_USERNAME && (
             <a
               href={githubUrl}
@@ -85,8 +104,8 @@ export function Hero() {
               LinkedIn
             </a>
           )}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
