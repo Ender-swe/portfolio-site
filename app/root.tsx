@@ -9,7 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./css/app.css";
-import "./css/fonts.css"
+import "./css/fonts.css";
+import { NavBar } from "~/components/NavBar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -43,7 +44,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <NavBar />
+      <Outlet />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
