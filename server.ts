@@ -22,8 +22,7 @@ const app = express();
 /** Serve the client-side assets produced by `npm run build`. */
 app.use(express.static("build/client"));
 
-app.all(
-  "*",
+app.use(
   createRequestHandler({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     build: () => import(BUILD_PATH) as any,
