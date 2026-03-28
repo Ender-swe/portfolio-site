@@ -4,9 +4,10 @@
   --font-sans: "Gravity", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --color-bg: #0f1117;
+  --color-bg: #0b0d14;
   --color-surface: #1a1f2e;
   --color-accent: #00d4ff;
+  --color-accent-purple: #7c3aed;
   --color-text: #e2e8f0;
   --color-muted: #4a5568;
 }
@@ -14,6 +15,11 @@
 html,
 body {
   background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 70% 55% at 5% 0%, rgba(0, 212, 255, 0.13) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 50% at 95% 100%, rgba(124, 58, 237, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 80% 15%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
   color: var(--color-text);
   color-scheme: dark;
 }

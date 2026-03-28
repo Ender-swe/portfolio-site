@@ -34,7 +34,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       {hasAbout ? (
         <Link
           to={`/projects/${slug}`}
-          className="text-xl font-semibold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
+          className="text-xl font-semibold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-all hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]"
         >
           {name}
         </Link>
@@ -79,7 +79,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${name} on GitHub`}
-        className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors w-fit"
+        className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-all hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)] w-fit"
       >
         GitHub →
       </a>
