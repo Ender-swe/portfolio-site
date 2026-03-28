@@ -74,6 +74,20 @@ export const projects: Project[] = [
     hasAbout: false,
   },
   {
+    slug: "portfolio-site",
+    name: "Portfolio Site",
+    description:
+      "Personal portfolio website built with React Router 7 and server-side rendering.",
+    bullets: [
+      "SSR and static pre-rendering with React Router 7",
+      "Tailwind CSS 4 design system with custom color tokens",
+      "Markdown-rendered project detail pages fetched from GitHub",
+    ],
+    tech: ["React 19", "React Router 7", "TypeScript", "Tailwind CSS 4", "Vite"],
+    githubRepo: "portfolio-site",
+    hasAbout: true,
+  },
+  {
     slug: "easy-go-list",
     name: "Easy Go List",
     description:
