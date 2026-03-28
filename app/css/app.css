@@ -3,13 +3,17 @@
 @theme {
   --font-sans: "Gravity", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-bg: #0f1117;
+  --color-surface: #1a1f2e;
+  --color-accent: #00d4ff;
+  --color-text: #e2e8f0;
+  --color-muted: #4a5568;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  color-scheme: dark;
 }
