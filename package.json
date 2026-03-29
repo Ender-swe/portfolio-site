@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node --env-file=.env node_modules/.bin/react-router build",
+    "build:prod": "NODE_ENV=production node --env-file=.env node_modules/.bin/react-router build",
     "dev": "node --env-file=.env node_modules/.bin/react-router dev",
     "start": "node --env-file=.env node_modules/.bin/react-router build && npx serve build/client",
     "typecheck": "react-router typegen && tsc",

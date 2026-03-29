@@ -18,11 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - run: npm ci
@@ -30,17 +30,14 @@ jobs:
       - name: Write .env
         run: |
           cat > .env <<EOF
-          PORTFOLIO_USERNAME=${{ secrets.PORTFOLIO_USERNAME }}
-          PORTFOLIO_NAME=${{ secrets.PORTFOLIO_NAME }}
           PORTFOLIO_EMAIL=${{ secrets.PORTFOLIO_EMAIL }}
           PORTFOLIO_PHONE=${{ secrets.PORTFOLIO_PHONE }}
-          PORTFOLIO_LINKEDIN_URL=${{ secrets.PORTFOLIO_LINKEDIN_URL }}
           EOF
 
       - name: Build
-        run: npm run build
+        run: npm run build:prod
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: build/client
 
@@ -53,4 +50,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
