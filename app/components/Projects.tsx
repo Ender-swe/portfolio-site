@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { PORTFOLIO_USERNAME } from "~/load-context";
+import { GITHUB_USERNAME } from "~/load-context";
 import { projects } from "~/data/projects";
 import type { Project } from "~/data/projects";
 import { fadeUpVariants, staggerContainer } from "~/lib/animations";
@@ -26,7 +26,7 @@ function ProjectCard({ project }: ProjectCardProps) {
   const { slug, name, description, bullets, tech, githubRepo, hasAbout } =
     project;
 
-  const githubUrl = `https://github.com/${PORTFOLIO_USERNAME}/${githubRepo}`;
+  const githubUrl = `https://github.com/${GITHUB_USERNAME}/${githubRepo}`;
 
   return (
     <article className="flex flex-col gap-4 rounded-lg border border-[var(--color-surface)] bg-[var(--color-surface)] p-6 hover:border-[var(--color-accent)] transition-colors">

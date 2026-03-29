@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { PORTFOLIO_USERNAME } from "~/load-context";
+import { GITHUB_USERNAME } from "~/load-context";
 import { NavBar } from "./NavBar";
 
 describe("NavBar", () => {
@@ -14,7 +14,7 @@ describe("NavBar", () => {
     const githubLink = screen.getByRole("link", { name: /github/i });
     expect(githubLink).toHaveAttribute(
       "href",
-      `https://github.com/${PORTFOLIO_USERNAME}`,
+      `https://github.com/${GITHUB_USERNAME}`,
     );
     expect(githubLink).toHaveAttribute("target", "_blank");
     expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");

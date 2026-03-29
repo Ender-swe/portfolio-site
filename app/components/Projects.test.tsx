@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { MemoryRouter } from "react-router";
-import { PORTFOLIO_USERNAME } from "~/load-context";
+import { GITHUB_USERNAME } from "~/load-context";
 import { projects } from "~/data/projects";
 import { Projects } from "./Projects";
 
@@ -46,7 +46,7 @@ describe("Projects", () => {
   it("renders a GitHub link for each project", () => {
     renderProjects();
     for (const project of projects) {
-      const expectedHref = `https://github.com/${PORTFOLIO_USERNAME}/${project.githubRepo}`;
+      const expectedHref = `https://github.com/${GITHUB_USERNAME}/${project.githubRepo}`;
       // Find the GitHub anchor whose href matches
       const links = screen
         .getAllByRole("link")
@@ -58,7 +58,7 @@ describe("Projects", () => {
   it("GitHub links open in a new tab with noopener noreferrer", () => {
     renderProjects();
     for (const project of projects) {
-      const expectedHref = `https://github.com/${PORTFOLIO_USERNAME}/${project.githubRepo}`;
+      const expectedHref = `https://github.com/${GITHUB_USERNAME}/${project.githubRepo}`;
       const link = screen
         .getAllByRole("link")
         .find((el) => el.getAttribute("href") === expectedHref);

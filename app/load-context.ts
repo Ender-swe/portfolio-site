@@ -1,9 +1,9 @@
 /**
- * Server-side environment utilities.
+ * Site-wide constants for profile information shown throughout the portfolio.
  *
- * These values are read from `process.env` at **build time** when routes are
- * pre-rendered. Set them in `.env` (see `.env.example`) before running
- * `npm run build`.
+ * Most values are hardcoded for this deployment. `PHONE_NUMBER` is the
+ * exception — it reads from `PORTFOLIO_PHONE` at runtime so the number stays
+ * out of source control.
  *
  * @module load-context
  */
@@ -14,33 +14,27 @@
  *
  * @example
  * ```ts
- * import { PORTFOLIO_USERNAME } from "~/load-context";
- * const url = `https://raw.githubusercontent.com/${PORTFOLIO_USERNAME}/${slug}/main/ABOUT.md`;
+ * import { GITHUB_USERNAME } from "~/load-context";
+ * const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${slug}/main/ABOUT.md`;
  * ```
  */
-export const PORTFOLIO_USERNAME = process.env.PORTFOLIO_USERNAME ?? "";
+export const GITHUB_USERNAME = "Ender-swe";
 
-/**
- * Full display name shown in the Hero section.
- * Set via the `PORTFOLIO_NAME` environment variable.
- */
-export const PORTFOLIO_NAME = process.env.PORTFOLIO_NAME ?? "";
+/** Full display name shown in the Hero section. */
+export const NAME = "Eduardo Turcios";
 
-/**
- * Contact email address shown in the Hero section.
- * Set via the `PORTFOLIO_EMAIL` environment variable.
+/** Contact email address shown in the Hero section.
+ * Falls back to a placeholder if `PORTFOLIO_EMAIL` is not set.
  */
-export const PORTFOLIO_EMAIL = process.env.PORTFOLIO_EMAIL ?? "";
+export const EMAIL_ADDRESS =
+  process.env.PORTFOLIO_EMAIL ?? "Email on live website";
 
 /**
  * Contact phone number shown in the Hero section.
- * Set via the `PORTFOLIO_PHONE` environment variable.
+ * Falls back to a placeholder if `PORTFOLIO_PHONE` is not set.
  */
-export const PORTFOLIO_PHONE = process.env.PORTFOLIO_PHONE ?? "";
+export const PHONE_NUMBER =
+  process.env.PORTFOLIO_PHONE ?? "Phone on live website";
 
-/**
- * LinkedIn profile URL shown in the Hero section.
- * Set via the `PORTFOLIO_LINKEDIN_URL` environment variable.
- */
-
-export const PORTFOLIO_LINKEDIN_URL = process.env.PORTFOLIO_LINKEDIN_URL ?? "";
+/** LinkedIn profile slug used to build the profile URL in the Hero section. */
+export const LINKEDIN_SLUG = "e-turcios-software-engineer";

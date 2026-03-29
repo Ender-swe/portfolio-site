@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
-import {
-  PORTFOLIO_USERNAME,
-  PORTFOLIO_NAME,
-  PORTFOLIO_LINKEDIN_URL,
-} from "~/load-context";
+import { GITHUB_USERNAME, NAME, LINKEDIN_SLUG } from "~/load-context";
 import { fadeUpVariants, staggerContainer } from "~/lib/animations";
 import { GitHubIcon, LinkedInIcon } from "~/components/icons";
 import { Link } from "react-router";
 
 export function Hero() {
-  const githubUrl = `https://github.com/${PORTFOLIO_USERNAME}`;
+  const githubUrl = `https://github.com/${GITHUB_USERNAME}`;
 
   return (
     <section
@@ -35,7 +31,7 @@ export function Hero() {
           variants={fadeUpVariants}
           className="text-5xl sm:text-6xl md:text-7xl font-bold text-[var(--color-text)] leading-tight"
         >
-          {PORTFOLIO_NAME || "Your Name"}
+          {NAME || "Your Name"}
         </motion.h1>
 
         {/* Divider accent */}
@@ -57,7 +53,7 @@ export function Hero() {
           variants={fadeUpVariants}
           className="flex flex-wrap gap-4 mt-2"
         >
-          {PORTFOLIO_USERNAME && (
+          {GITHUB_USERNAME && (
             <Link
               to={githubUrl}
               target="_blank"
@@ -69,9 +65,9 @@ export function Hero() {
               GitHub
             </Link>
           )}
-          {PORTFOLIO_LINKEDIN_URL && (
+          {LINKEDIN_SLUG && (
             <Link
-              to={`https://www.linkedin.com/in/${PORTFOLIO_LINKEDIN_URL}`}
+              to={`https://www.linkedin.com/in/${LINKEDIN_SLUG}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

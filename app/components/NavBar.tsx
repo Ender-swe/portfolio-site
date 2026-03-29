@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  PORTFOLIO_USERNAME,
-  PORTFOLIO_LINKEDIN_URL,
-  PORTFOLIO_NAME,
-} from "~/load-context";
+import { GITHUB_USERNAME, LINKEDIN_SLUG, NAME } from "~/load-context";
 import { GitHubIcon, LinkedInIcon } from "~/components/icons";
 import { ThemeToggle } from "~/components/ThemeToggle";
 import { Link } from "react-router";
@@ -33,7 +29,7 @@ export function NavBar() {
           to={{ pathname: "/" }}
           className="font-bold text-lg text-[var(--color-accent)] tracking-wide"
         >
-          {PORTFOLIO_NAME}
+          {NAME}
         </Link>
 
         {/* Desktop nav */}
@@ -51,9 +47,9 @@ export function NavBar() {
             className="h-4 w-px bg-[var(--color-muted)]/40"
             aria-hidden="true"
           />
-          {PORTFOLIO_USERNAME && (
+          {GITHUB_USERNAME && (
             <Link
-              to={`https://github.com/${PORTFOLIO_USERNAME}`}
+              to={`https://github.com/${GITHUB_USERNAME}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -62,9 +58,9 @@ export function NavBar() {
               <GitHubIcon />
             </Link>
           )}
-          {PORTFOLIO_LINKEDIN_URL && (
+          {LINKEDIN_SLUG && (
             <Link
-              to={`https://www.linkedin.com/in/${PORTFOLIO_LINKEDIN_URL}`}
+              to={`https://www.linkedin.com/in/${LINKEDIN_SLUG}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -108,9 +104,9 @@ export function NavBar() {
             {label}
           </Link>
         ))}
-        {PORTFOLIO_USERNAME && (
+        {GITHUB_USERNAME && (
           <Link
-            to={`https://github.com/${PORTFOLIO_USERNAME}`}
+            to={`https://github.com/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -120,9 +116,9 @@ export function NavBar() {
             GitHub
           </Link>
         )}
-        {PORTFOLIO_LINKEDIN_URL && (
+        {LINKEDIN_SLUG && (
           <Link
-            to={`https://www.linkedin.com/in/${PORTFOLIO_LINKEDIN_URL}`}
+            to={`https://www.linkedin.com/in/${LINKEDIN_SLUG}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
