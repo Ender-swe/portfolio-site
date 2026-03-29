@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { GITHUB_USERNAME } from "~/load-context";
+import { PORTFOLIO_USERNAME } from "~/load-context";
 import { NavBar } from "./NavBar";
 
 describe("NavBar", () => {
@@ -14,7 +14,7 @@ describe("NavBar", () => {
     const githubLink = screen.getByRole("link", { name: /github/i });
     expect(githubLink).toHaveAttribute(
       "href",
-      `https://github.com/${GITHUB_USERNAME}`
+      `https://github.com/${PORTFOLIO_USERNAME}`,
     );
     expect(githubLink).toHaveAttribute("target", "_blank");
     expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
@@ -56,7 +56,7 @@ describe("NavBar", () => {
 
     const mobileNav = screen.getByRole("navigation", { name: /mobile/i });
     const hrefs = Array.from(mobileNav.querySelectorAll("a")).map((a) =>
-      a.getAttribute("href")
+      a.getAttribute("href"),
     );
     expect(hrefs).toContain("#hero");
     expect(hrefs).toContain("#projects");

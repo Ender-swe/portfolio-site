@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import {
-  GITHUB_USERNAME,
+  PORTFOLIO_USERNAME,
   PORTFOLIO_NAME,
   PORTFOLIO_LINKEDIN_URL,
 } from "~/load-context";
@@ -8,7 +8,7 @@ import { fadeUpVariants, staggerContainer } from "~/lib/animations";
 import { GitHubIcon, LinkedInIcon } from "~/components/icons";
 
 export function Hero() {
-  const githubUrl = `https://github.com/${GITHUB_USERNAME}`;
+  const githubUrl = `https://github.com/${PORTFOLIO_USERNAME}`;
 
   return (
     <section
@@ -52,8 +52,11 @@ export function Hero() {
         </motion.p>
 
         {/* Social / contact links */}
-        <motion.div variants={fadeUpVariants} className="flex flex-wrap gap-4 mt-2">
-          {GITHUB_USERNAME && (
+        <motion.div
+          variants={fadeUpVariants}
+          className="flex flex-wrap gap-4 mt-2"
+        >
+          {PORTFOLIO_USERNAME && (
             <a
               href={githubUrl}
               target="_blank"

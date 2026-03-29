@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { MemoryRouter } from "react-router";
-import { GITHUB_USERNAME } from "~/load-context";
+import { PORTFOLIO_USERNAME } from "~/load-context";
 import { projects } from "~/data/projects";
 import { Projects } from "./Projects";
 
@@ -10,7 +10,7 @@ function renderProjects() {
   return render(
     <MemoryRouter>
       <Projects />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 }
 
@@ -23,7 +23,7 @@ describe("Projects", () => {
   it("renders a heading for the section", () => {
     renderProjects();
     expect(
-      screen.getByRole("heading", { name: /projects/i, level: 2 })
+      screen.getByRole("heading", { name: /projects/i, level: 2 }),
     ).toBeInTheDocument();
   });
 
@@ -46,7 +46,7 @@ describe("Projects", () => {
   it("renders a GitHub link for each project", () => {
     renderProjects();
     for (const project of projects) {
-      const expectedHref = `https://github.com/${GITHUB_USERNAME}/${project.githubRepo}`;
+      const expectedHref = `https://github.com/${PORTFOLIO_USERNAME}/${project.githubRepo}`;
       // Find the GitHub anchor whose href matches
       const links = screen
         .getAllByRole("link")
@@ -58,7 +58,7 @@ describe("Projects", () => {
   it("GitHub links open in a new tab with noopener noreferrer", () => {
     renderProjects();
     for (const project of projects) {
-      const expectedHref = `https://github.com/${GITHUB_USERNAME}/${project.githubRepo}`;
+      const expectedHref = `https://github.com/${PORTFOLIO_USERNAME}/${project.githubRepo}`;
       const link = screen
         .getAllByRole("link")
         .find((el) => el.getAttribute("href") === expectedHref);
@@ -75,8 +75,7 @@ describe("Projects", () => {
     const nameLink = screen
       .getAllByRole("link")
       .find(
-        (el) =>
-          el.getAttribute("href") === `/projects/${hasAboutProject.slug}`
+        (el) => el.getAttribute("href") === `/projects/${hasAboutProject.slug}`,
       );
     expect(nameLink).toBeDefined();
     expect(nameLink).toHaveTextContent(hasAboutProject.name);

@@ -12,7 +12,7 @@
 import { Link, useLoaderData } from "react-router";
 import Markdown from "react-markdown";
 import type { Route } from "./+types/projects.$slug";
-import { GITHUB_USERNAME } from "~/load-context";
+import { PORTFOLIO_USERNAME } from "~/load-context";
 
 // ---------------------------------------------------------------------------
 // Loader
@@ -39,7 +39,7 @@ export async function loader({
   params,
 }: Route.LoaderArgs): Promise<ProjectDetailLoaderData> {
   const { slug } = params;
-  const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${slug}/main/ABOUT.md`;
+  const url = `https://raw.githubusercontent.com/${PORTFOLIO_USERNAME}/${slug}/main/ABOUT.md`;
 
   const response = await fetch(url);
 

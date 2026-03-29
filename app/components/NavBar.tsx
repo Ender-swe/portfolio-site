@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  GITHUB_USERNAME,
+  PORTFOLIO_USERNAME,
   PORTFOLIO_LINKEDIN_URL,
   PORTFOLIO_NAME,
 } from "~/load-context";
@@ -46,9 +46,9 @@ export function NavBar() {
               {label}
             </Link>
           ))}
-          {GITHUB_USERNAME && (
+          {PORTFOLIO_USERNAME && (
             <Link
-              to={`https://github.com/${GITHUB_USERNAME}`}
+              to={`https://github.com/${PORTFOLIO_USERNAME}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -102,9 +102,9 @@ export function NavBar() {
             {label}
           </Link>
         ))}
-        {GITHUB_USERNAME && (
+        {PORTFOLIO_USERNAME && (
           <Link
-            to={`https://github.com/${GITHUB_USERNAME}`}
+            to={`https://github.com/${PORTFOLIO_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"

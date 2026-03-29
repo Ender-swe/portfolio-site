@@ -30,7 +30,7 @@ jobs:
       - name: Write .env
         run: |
           cat > .env <<EOF
-          GITHUB_USERNAME=${{ secrets.GITHUB_USERNAME }}
+          PORTFOLIO_USERNAME=${{ secrets.PORTFOLIO_USERNAME }}
           PORTFOLIO_NAME=${{ secrets.PORTFOLIO_NAME }}
           PORTFOLIO_EMAIL=${{ secrets.PORTFOLIO_EMAIL }}
           PORTFOLIO_PHONE=${{ secrets.PORTFOLIO_PHONE }}

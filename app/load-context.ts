@@ -18,7 +18,7 @@
  * const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${slug}/main/ABOUT.md`;
  * ```
  */
-export const GITHUB_USERNAME = process.env.GITHUB_USERNAME ?? "";
+export const PORTFOLIO_USERNAME = process.env.PORTFOLIO_USERNAME ?? "";
 
 /**
  * Full display name shown in the Hero section.
