@@ -6,11 +6,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { useEffect, useState } from "react";
 
 import type { Route } from "./+types/root";
 import "./css/app.css";
 import "./css/fonts.css";
 import { NavBar } from "~/components/NavBar";
+import { ThemeContext, type Theme } from "~/context/theme";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -26,20 +28,47 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  // null = not yet resolved on client (SSR renders no attribute → CSS media
+  // query handles system preference without any flash on first visit)
+  const [theme, setTheme] = useState<Theme | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme") as Theme | null;
+    if (stored === "dark" || stored === "light") {
+      setTheme(stored);
+    } else {
+      setTheme(
+        window.matchMedia("(prefers-color-scheme: light)").matches
+          ? "light"
+          : "dark"
+      );
+    }
+  }, []);
+
+  const toggle = () => {
+    setTheme((prev) => {
+      const next = prev === "light" ? "dark" : "light";
+      localStorage.setItem("theme", next);
+      return next;
+    });
+  };
+
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
+    <ThemeContext.Provider value={{ theme: theme ?? "dark", toggle }}>
+      <html lang="en" {...(theme ? { "data-theme": theme } : {})}>
+        <head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <Meta />
+          <Links />
+        </head>
+        <body>
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+        </body>
+      </html>
+    </ThemeContext.Provider>
   );
 }
 

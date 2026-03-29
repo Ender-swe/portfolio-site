@@ -5,6 +5,7 @@ import {
   PORTFOLIO_NAME,
 } from "~/load-context";
 import { GitHubIcon, LinkedInIcon } from "~/components/icons";
+import { ThemeToggle } from "~/components/ThemeToggle";
 import { Link } from "react-router";
 
 /** Anchor links for each page section. */
@@ -46,6 +47,7 @@ export function NavBar() {
               {label}
             </Link>
           ))}
+          <span className="h-4 w-px bg-[var(--color-muted)]/40" aria-hidden="true" />
           {PORTFOLIO_USERNAME && (
             <Link
               to={`https://github.com/${PORTFOLIO_USERNAME}`}
@@ -68,6 +70,7 @@ export function NavBar() {
               <LinkedInIcon />
             </Link>
           )}
+          <ThemeToggle />
         </nav>
 
         {/* Hamburger button (mobile) */}
@@ -126,6 +129,8 @@ export function NavBar() {
             LinkedIn
           </Link>
         )}
+        <hr className="border-[var(--color-muted)]/30" aria-hidden="true" />
+        <ThemeToggle />
       </nav>
     </header>
   );
