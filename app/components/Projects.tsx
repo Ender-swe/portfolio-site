@@ -3,6 +3,7 @@ import { GITHUB_USERNAME } from "~/load-context";
 import { projects } from "~/data/projects";
 import type { Project } from "~/data/projects";
 import { fadeUpVariants, staggerContainer } from "~/lib/animations";
+import { Link } from "react-router";
 
 // ---------------------------------------------------------------------------
 // Sub-component: ProjectCard
@@ -31,12 +32,12 @@ function ProjectCard({ project }: ProjectCardProps) {
     <article className="flex flex-col gap-4 rounded-lg border border-[var(--color-surface)] bg-[var(--color-surface)] p-6 hover:border-[var(--color-accent)] transition-colors">
       {/* Project name — link to detail page only when hasAbout is true */}
       {hasAbout ? (
-        <a
-          href={`projects/${slug}/`}
+        <Link
+          to={`projects/${slug}/`}
           className="text-xl font-semibold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-all hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]"
         >
           {name}
-        </a>
+        </Link>
       ) : (
         <h3 className="text-xl font-semibold text-[var(--color-text)]">
           {name}
@@ -73,15 +74,15 @@ function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* GitHub link */}
-      <a
-        href={githubUrl}
+      <Link
+        to={githubUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${name} on GitHub`}
         className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-all hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)] w-fit"
       >
         GitHub →
-      </a>
+      </Link>
     </article>
   );
 }

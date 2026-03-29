@@ -9,10 +9,11 @@
  * @module routes/projects.$slug
  */
 
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import Markdown from "react-markdown";
 import type { Route } from "./+types/projects.$slug";
 import { GITHUB_USERNAME } from "~/load-context";
+import { L } from "node_modules/vitest/dist/chunks/reporters.d.B0uk8id2";
 
 // ---------------------------------------------------------------------------
 // Loader
@@ -35,7 +36,9 @@ export interface ProjectDetailLoaderData {
  * @param params - Route params containing `slug`.
  * @throws {Response} 404 when ABOUT.md cannot be found.
  */
-export async function loader({ params }: Route.LoaderArgs): Promise<ProjectDetailLoaderData> {
+export async function loader({
+  params,
+}: Route.LoaderArgs): Promise<ProjectDetailLoaderData> {
   const { slug } = params;
   const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${slug}/main/ABOUT.md`;
 
@@ -91,12 +94,12 @@ export function ProjectDetail() {
   return (
     <main className="px-4 py-24 max-w-3xl mx-auto">
       {/* Back navigation */}
-      <a
-        href="/#projects"
+      <Link
+        to="/#projects"
         className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-10"
       >
         ← Back to Projects
-      </a>
+      </Link>
 
       {/* Project title */}
       <h1 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)] mb-8">
