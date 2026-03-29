@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
     define: {
-      "process.env.GITHUB_USERNAME": JSON.stringify(env.GITHUB_USERNAME ?? ""),
+      "process.env.PORTFOLIO_USERNAME": JSON.stringify(env.PORTFOLIO_USERNAME ?? ""),
       "process.env.PORTFOLIO_NAME": JSON.stringify(env.PORTFOLIO_NAME ?? ""),
       "process.env.PORTFOLIO_EMAIL": JSON.stringify(env.PORTFOLIO_EMAIL ?? ""),
       "process.env.PORTFOLIO_PHONE": JSON.stringify(env.PORTFOLIO_PHONE ?? ""),
