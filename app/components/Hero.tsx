@@ -6,6 +6,7 @@ import {
 } from "~/load-context";
 import { fadeUpVariants, staggerContainer } from "~/lib/animations";
 import { GitHubIcon, LinkedInIcon } from "~/components/icons";
+import { Link } from "react-router";
 
 export function Hero() {
   const githubUrl = `https://github.com/${PORTFOLIO_USERNAME}`;
@@ -57,8 +58,8 @@ export function Hero() {
           className="flex flex-wrap gap-4 mt-2"
         >
           {PORTFOLIO_USERNAME && (
-            <a
-              href={githubUrl}
+            <Link
+              to={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -66,11 +67,11 @@ export function Hero() {
             >
               <GitHubIcon />
               GitHub
-            </a>
+            </Link>
           )}
           {PORTFOLIO_LINKEDIN_URL && (
-            <a
-              href={PORTFOLIO_LINKEDIN_URL}
+            <Link
+              to={PORTFOLIO_LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -78,7 +79,7 @@ export function Hero() {
             >
               <LinkedInIcon />
               LinkedIn
-            </a>
+            </Link>
           )}
         </motion.div>
       </motion.div>

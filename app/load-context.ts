@@ -14,8 +14,8 @@
  *
  * @example
  * ```ts
- * import { GITHUB_USERNAME } from "~/load-context";
- * const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${slug}/main/ABOUT.md`;
+ * import { PORTFOLIO_USERNAME } from "~/load-context";
+ * const url = `https://raw.githubusercontent.com/${PORTFOLIO_USERNAME}/${slug}/main/ABOUT.md`;
  * ```
  */
 export const PORTFOLIO_USERNAME = process.env.PORTFOLIO_USERNAME ?? "";
