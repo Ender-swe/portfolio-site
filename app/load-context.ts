@@ -42,4 +42,5 @@ export const PORTFOLIO_PHONE = process.env.PORTFOLIO_PHONE ?? "";
  * LinkedIn profile URL shown in the Hero section.
  * Set via the `PORTFOLIO_LINKEDIN_URL` environment variable.
  */
+
 export const PORTFOLIO_LINKEDIN_URL = process.env.PORTFOLIO_LINKEDIN_URL ?? "";

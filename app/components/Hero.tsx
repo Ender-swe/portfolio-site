@@ -71,7 +71,7 @@ export function Hero() {
           )}
           {PORTFOLIO_LINKEDIN_URL && (
             <Link
-              to={PORTFOLIO_LINKEDIN_URL}
+              to={`https://www.linkedin.com/in/${PORTFOLIO_LINKEDIN_URL}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

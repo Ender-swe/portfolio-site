@@ -47,7 +47,10 @@ export function NavBar() {
               {label}
             </Link>
           ))}
-          <span className="h-4 w-px bg-[var(--color-muted)]/40" aria-hidden="true" />
+          <span
+            className="h-4 w-px bg-[var(--color-muted)]/40"
+            aria-hidden="true"
+          />
           {PORTFOLIO_USERNAME && (
             <Link
               to={`https://github.com/${PORTFOLIO_USERNAME}`}
@@ -61,7 +64,7 @@ export function NavBar() {
           )}
           {PORTFOLIO_LINKEDIN_URL && (
             <Link
-              to={PORTFOLIO_LINKEDIN_URL}
+              to={`https://www.linkedin.com/in/${PORTFOLIO_LINKEDIN_URL}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -119,7 +122,7 @@ export function NavBar() {
         )}
         {PORTFOLIO_LINKEDIN_URL && (
           <Link
-            to={PORTFOLIO_LINKEDIN_URL}
+            to={`https://www.linkedin.com/in/${PORTFOLIO_LINKEDIN_URL}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
