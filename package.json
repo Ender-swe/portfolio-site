@@ -7,7 +7,9 @@
     "dev": "node --env-file=.env node_modules/.bin/react-router dev",
     "start": "node --env-file=.env node_modules/.bin/react-router build && npx serve build/client",
     "typecheck": "react-router typegen && tsc",
-    "test": "vitest run"
+    "test": "vitest run",
+    "pretty": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\"",
+    "copyright": "node scripts/copyright.mjs"
   },
   "dependencies": {
     "@react-router/node": "7.13.2",
@@ -29,6 +31,8 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "jsdom": "^29.0.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vite": "^7.1.7",

@@ -1,4 +1,8 @@
 /**
+ * @copyright 2026 Eduardo Turcios. All rights reserved.
+ * Unauthorized use, reproduction, or distribution of this file is strictly prohibited.
+ */
+/**
  * Static education data for the portfolio.
  *
  * Each entry describes one academic credential.
@@ -21,15 +25,15 @@ export interface EducationEntry {
 /** All education entries, ordered most-recent first. */
 export const education: EducationEntry[] = [
   {
-    institution: "University at Buffalo",
-    degree: "BS",
-    field: "Computer Science",
-    graduationDate: "Aug 2025",
+    institution: 'University at Buffalo',
+    degree: 'BS',
+    field: 'Computer Science',
+    graduationDate: 'Aug 2025',
   },
   {
-    institution: "Borough of Manhattan Community College",
-    degree: "AS",
-    field: "Computer Science",
-    graduationDate: "Feb 2022",
+    institution: 'Borough of Manhattan Community College',
+    degree: 'AS',
+    field: 'Computer Science',
+    graduationDate: 'Feb 2022',
   },
 ];

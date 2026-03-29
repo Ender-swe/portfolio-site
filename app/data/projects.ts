@@ -1,4 +1,8 @@
 /**
+ * @copyright 2026 Eduardo Turcios. All rights reserved.
+ * Unauthorized use, reproduction, or distribution of this file is strictly prohibited.
+ */
+/**
  * Static project data for the portfolio.
  *
  * Each entry describes one portfolio project. Set `hasAbout` to `true` once a
@@ -32,73 +36,68 @@ export interface Project {
 /** All portfolio projects, ordered for display on the home page. */
 export const projects: Project[] = [
   {
-    slug: "heartbeat-detector",
-    name: "Heartbeat Detector",
-    description:
-      "Distributed health-monitoring service that tracks node liveness over gRPC.",
+    slug: 'heartbeat-detector',
+    name: 'Heartbeat Detector',
+    description: 'Distributed health-monitoring service that tracks node liveness over gRPC.',
     bullets: [
-      "Concurrent health checks via Go goroutines and channels",
-      "Service contracts defined with Protocol Buffers",
-      "Streaming gRPC for low-latency status propagation",
+      'Concurrent health checks via Go goroutines and channels',
+      'Service contracts defined with Protocol Buffers',
+      'Streaming gRPC for low-latency status propagation',
     ],
-    tech: ["Go", "gRPC", "Protocol Buffers", "goroutines"],
-    githubRepo: "heartbeat-detector",
+    tech: ['Go', 'gRPC', 'Protocol Buffers', 'goroutines'],
+    githubRepo: 'heartbeat-detector',
     hasAbout: false,
   },
   {
-    slug: "uber-dapp",
-    name: "Uber Dapp",
-    description:
-      "Decentralized ride-sharing application running on the Ethereum blockchain.",
+    slug: 'uber-dapp',
+    name: 'Uber Dapp',
+    description: 'Decentralized ride-sharing application running on the Ethereum blockchain.',
     bullets: [
-      "Solidity smart contracts manage ride lifecycle on-chain",
-      "Real-time driver/rider location sync with Socket.IO",
-      "Firebase authentication and off-chain user profiles",
+      'Solidity smart contracts manage ride lifecycle on-chain',
+      'Real-time driver/rider location sync with Socket.IO',
+      'Firebase authentication and off-chain user profiles',
     ],
-    tech: ["React.js", "ChakraUI", "Express", "Sequelize", "Firebase", "Solidity", "Socket.IO"],
-    githubRepo: "uber-dapp",
+    tech: ['React.js', 'ChakraUI', 'Express', 'Sequelize', 'Firebase', 'Solidity', 'Socket.IO'],
+    githubRepo: 'uber-dapp',
     hasAbout: false,
   },
   {
-    slug: "grace-shopper-lime",
-    name: "Grace Shopper Lime",
-    description:
-      "Full-stack e-commerce platform with cart management and payment processing.",
+    slug: 'grace-shopper-lime',
+    name: 'Grace Shopper Lime',
+    description: 'Full-stack e-commerce platform with cart management and payment processing.',
     bullets: [
-      "JWT-based authentication and role-based authorization",
-      "PayPal API integration for secure checkout",
-      "Persistent cart backed by Sequelize ORM",
+      'JWT-based authentication and role-based authorization',
+      'PayPal API integration for secure checkout',
+      'Persistent cart backed by Sequelize ORM',
     ],
-    tech: ["React", "Material UI", "Express.js", "Node.js", "Sequelize", "JWT", "PayPal API"],
-    githubRepo: "grace-shopper-lime",
+    tech: ['React', 'Material UI', 'Express.js', 'Node.js', 'Sequelize', 'JWT', 'PayPal API'],
+    githubRepo: 'grace-shopper-lime',
     hasAbout: false,
   },
   {
-    slug: "portfolio-site",
-    name: "Portfolio Site",
-    description:
-      "Personal portfolio website built with React Router 7 and server-side rendering.",
+    slug: 'portfolio-site',
+    name: 'Portfolio Site',
+    description: 'Personal portfolio website built with React Router 7 and server-side rendering.',
     bullets: [
-      "SSR and static pre-rendering with React Router 7",
-      "Tailwind CSS 4 design system with custom color tokens",
-      "Markdown-rendered project detail pages fetched from GitHub",
+      'SSR and static pre-rendering with React Router 7',
+      'Tailwind CSS 4 design system with custom color tokens',
+      'Markdown-rendered project detail pages fetched from GitHub',
     ],
-    tech: ["React 19", "React Router 7", "TypeScript", "Tailwind CSS 4", "Vite"],
-    githubRepo: "portfolio-site",
+    tech: ['React 19', 'React Router 7', 'TypeScript', 'Tailwind CSS 4', 'Vite'],
+    githubRepo: 'portfolio-site',
     hasAbout: true,
   },
   {
-    slug: "easy-go-list",
-    name: "Easy Go List",
-    description:
-      "Collaborative task-management app with real-time updates across clients.",
+    slug: 'easy-go-list',
+    name: 'Easy Go List',
+    description: 'Collaborative task-management app with real-time updates across clients.',
     bullets: [
-      "Firebase real-time database for live list synchronization",
-      "REST API built with Express.js and Sequelize",
-      "Responsive interface styled with Chakra UI",
+      'Firebase real-time database for live list synchronization',
+      'REST API built with Express.js and Sequelize',
+      'Responsive interface styled with Chakra UI',
     ],
-    tech: ["React", "Express.js", "Node.js", "Sequelize", "Chakra UI", "Firebase"],
-    githubRepo: "easy-go-list",
+    tech: ['React', 'Express.js', 'Node.js', 'Sequelize', 'Chakra UI', 'Firebase'],
+    githubRepo: 'easy-go-list',
     hasAbout: false,
   },
 ];

@@ -1,4 +1,8 @@
 /**
+ * @copyright 2026 Eduardo Turcios. All rights reserved.
+ * Unauthorized use, reproduction, or distribution of this file is strictly prohibited.
+ */
+/**
  * Static work-experience data for the portfolio.
  *
  * Each entry describes one position held.
@@ -25,14 +29,14 @@ export interface ExperienceEntry {
 /** All experience entries, ordered most-recent first. */
 export const experience: ExperienceEntry[] = [
   {
-    organisation: "US Marine Corps",
-    role: "Operational Supervisor",
-    location: "Camp Pendleton, CA",
-    startDate: "Jan 2015",
-    endDate: "Jan 2019",
+    organisation: 'US Marine Corps',
+    role: 'Operational Supervisor',
+    location: 'Camp Pendleton, CA',
+    startDate: 'Jan 2015',
+    endDate: 'Jan 2019',
     bullets: [
-      "Managed training schedules for 200+ personnel; awarded Navy/Marine Corps Achievement Medal",
-      "Supervised a team of 10 and developed internal operational tools",
+      'Managed training schedules for 200+ personnel; awarded Navy/Marine Corps Achievement Medal',
+      'Supervised a team of 10 and developed internal operational tools',
     ],
   },
 ];

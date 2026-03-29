@@ -1,9 +1,13 @@
-import { motion } from "framer-motion";
-import { GITHUB_USERNAME } from "~/load-context";
-import { projects } from "~/data/projects";
-import type { Project } from "~/data/projects";
-import { fadeUpVariants, staggerContainer } from "~/lib/animations";
-import { Link } from "react-router";
+/**
+ * @copyright 2026 Eduardo Turcios. All rights reserved.
+ * Unauthorized use, reproduction, or distribution of this file is strictly prohibited.
+ */
+import { motion } from 'framer-motion';
+import { GITHUB_USERNAME } from '~/load-context';
+import { projects } from '~/data/projects';
+import type { Project } from '~/data/projects';
+import { fadeUpVariants, staggerContainer } from '~/lib/animations';
+import { Link } from 'react-router';
 
 // ---------------------------------------------------------------------------
 // Sub-component: ProjectCard
@@ -23,50 +27,42 @@ interface ProjectCardProps {
  * a GitHub link.
  */
 function ProjectCard({ project }: ProjectCardProps) {
-  const { slug, name, description, bullets, tech, githubRepo, hasAbout } =
-    project;
+  const { slug, name, description, bullets, tech, githubRepo, hasAbout } = project;
 
   const githubUrl = `https://github.com/${GITHUB_USERNAME}/${githubRepo}`;
 
   return (
-    <article className="flex flex-col gap-4 rounded-lg border border-[var(--color-surface)] bg-[var(--color-surface)] p-6 hover:border-[var(--color-accent)] transition-colors">
+    <article className='flex flex-col gap-4 rounded-lg border border-[var(--color-surface)] bg-[var(--color-surface)] p-6 transition-colors hover:border-[var(--color-accent)]'>
       {/* Project name — link to detail page only when hasAbout is true */}
       {hasAbout ? (
         <Link
           to={`projects/${slug}/`}
-          className="text-xl font-semibold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-all hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]"
+          className='text-xl font-semibold text-[var(--color-text)] transition-all hover:text-[var(--color-accent)] hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]'
         >
           {name}
         </Link>
       ) : (
-        <h3 className="text-xl font-semibold text-[var(--color-text)]">
-          {name}
-        </h3>
+        <h3 className='text-xl font-semibold text-[var(--color-text)]'>{name}</h3>
       )}
 
       {/* Description */}
-      <p className="text-sm text-[var(--color-muted)] leading-relaxed">
-        {description}
-      </p>
+      <p className='text-sm leading-relaxed text-[var(--color-muted)]'>{description}</p>
 
       {/* Bullet points */}
-      <ul className="flex flex-col gap-1.5 pl-4 list-disc marker:text-[var(--color-accent)]">
+      <ul className='flex list-disc flex-col gap-1.5 pl-4 marker:text-[var(--color-accent)]'>
         {bullets.map((bullet) => (
-          <li
-            key={bullet}
-            className="text-sm text-[var(--color-muted)] leading-relaxed"
-          >
+          <li key={bullet} className='text-sm leading-relaxed text-[var(--color-muted)]'>
             {bullet}
           </li>
         ))}
       </ul>
 
       {/* Tech-stack tags */}
-      <div className="flex flex-wrap gap-2 mt-auto pt-2">
+      <div className='mt-auto flex flex-wrap gap-2 pt-2'>
         {tech.map((tag) => (
           <span
             key={tag}
-            className="px-2 py-0.5 rounded text-xs font-medium border border-[var(--color-accent)] text-[var(--color-accent)]"
+            className='rounded border border-[var(--color-accent)] px-2 py-0.5 text-xs font-medium text-[var(--color-accent)]'
           >
             {tag}
           </span>
@@ -76,10 +72,10 @@ function ProjectCard({ project }: ProjectCardProps) {
       {/* GitHub link */}
       <Link
         to={githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener noreferrer'
         aria-label={`${name} on GitHub`}
-        className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-all hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)] w-fit"
+        className='inline-flex w-fit items-center gap-1.5 text-sm text-[var(--color-muted)] transition-all hover:text-[var(--color-accent)] hover:drop-shadow-[0_0_6px_rgba(0,212,255,0.4)]'
       >
         GitHub →
       </Link>
@@ -104,24 +100,24 @@ function ProjectCard({ project }: ProjectCardProps) {
  */
 export function Projects() {
   return (
-    <section id="projects" className="px-4 py-20">
+    <section id='projects' className='px-4 py-20'>
       <motion.div
-        className="max-w-5xl mx-auto flex flex-col gap-10"
+        className='mx-auto flex max-w-5xl flex-col gap-10'
         variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true }}
       >
         {/* Heading */}
         <motion.h2
           variants={fadeUpVariants}
-          className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]"
+          className='text-3xl font-bold text-[var(--color-text)] sm:text-4xl'
         >
           Projects
         </motion.h2>
 
         {/* Card grid */}
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className='grid gap-6 sm:grid-cols-2'>
           {projects.map((project) => (
             <motion.div key={project.slug} variants={fadeUpVariants}>
               <ProjectCard project={project} />

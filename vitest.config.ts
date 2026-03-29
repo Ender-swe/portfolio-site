@@ -1,14 +1,14 @@
-import { loadEnv } from "vite";
-import { defineConfig } from "vitest/config";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { loadEnv } from 'vite';
+import { defineConfig } from 'vitest/config';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
-    environment: "jsdom",
+    environment: 'jsdom',
     globals: true,
-    setupFiles: ["./vitest.setup.ts"],
+    setupFiles: ['./vitest.setup.ts'],
     // Load all .env variables (empty prefix = no VITE_ restriction)
-    env: loadEnv("test", process.cwd(), ""),
+    env: loadEnv('test', process.cwd(), ''),
   },
 });

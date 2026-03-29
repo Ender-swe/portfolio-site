@@ -1,4 +1,8 @@
-import type { Variants } from "framer-motion";
+/**
+ * @copyright 2026 Eduardo Turcios. All rights reserved.
+ * Unauthorized use, reproduction, or distribution of this file is strictly prohibited.
+ */
+import type { Variants } from 'framer-motion';
 
 export const staggerContainer: Variants = {
   hidden: {},
@@ -7,5 +11,5 @@ export const staggerContainer: Variants = {
 
 export const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };

@@ -1,22 +1,26 @@
-import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
-import { GITHUB_USERNAME, NAME, LINKEDIN_SLUG } from "~/load-context";
-import { Hero } from "./Hero";
+/**
+ * @copyright 2026 Eduardo Turcios. All rights reserved.
+ * Unauthorized use, reproduction, or distribution of this file is strictly prohibited.
+ */
+import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { GITHUB_USERNAME, NAME, LINKEDIN_SLUG } from '~/load-context';
+import { Hero } from './Hero';
 
-describe("Hero", () => {
+describe('Hero', () => {
   it("renders the section with id='hero'", () => {
     render(<Hero />);
-    expect(document.getElementById("hero")).toBeInTheDocument();
+    expect(document.getElementById('hero')).toBeInTheDocument();
   });
 
-  it("renders the name from PORTFOLIO_NAME env var", () => {
+  it('renders the name from PORTFOLIO_NAME env var', () => {
     render(<Hero />);
-    const heading = screen.getByRole("heading", { level: 1 });
-    const expectedName = NAME || "Your Name";
+    const heading = screen.getByRole('heading', { level: 1 });
+    const expectedName = NAME || 'Your Name';
     expect(heading).toHaveTextContent(expectedName);
   });
 
-  it("renders the short bio", () => {
+  it('renders the short bio', () => {
     render(<Hero />);
     const bio = screen.getByText(/computer science student/i);
     expect(bio).toBeInTheDocument();
@@ -24,40 +28,33 @@ describe("Hero", () => {
     expect(bio.textContent).toMatch(/software developer/i);
   });
 
-  it("renders a GitHub link when GITHUB_USERNAME is set", () => {
+  it('renders a GitHub link when GITHUB_USERNAME is set', () => {
     if (!GITHUB_USERNAME) return;
     render(<Hero />);
-    const link = screen.getByRole("link", { name: /github/i });
-    expect(link).toHaveAttribute(
-      "href",
-      `https://github.com/${GITHUB_USERNAME}`,
-    );
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    const link = screen.getByRole('link', { name: /github/i });
+    expect(link).toHaveAttribute('href', `https://github.com/${GITHUB_USERNAME}`);
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it("renders a LinkedIn link when PORTFOLIO_LINKEDIN_URL is set", () => {
+  it('renders a LinkedIn link when PORTFOLIO_LINKEDIN_URL is set', () => {
     if (!LINKEDIN_SLUG) return;
     render(<Hero />);
-    const link = screen.getByRole("link", { name: /linkedin/i });
-    expect(link).toHaveAttribute("href", LINKEDIN_SLUG);
-    expect(link).toHaveAttribute("target", "_blank");
-    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    const link = screen.getByRole('link', { name: /linkedin/i });
+    expect(link).toHaveAttribute('href', LINKEDIN_SLUG);
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it("does not render GitHub link when GITHUB_USERNAME is empty", () => {
+  it('does not render GitHub link when GITHUB_USERNAME is empty', () => {
     if (GITHUB_USERNAME) return;
     render(<Hero />);
-    expect(
-      screen.queryByRole("link", { name: /github/i }),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /github/i })).not.toBeInTheDocument();
   });
 
-  it("does not render LinkedIn link when PORTFOLIO_LINKEDIN_URL is empty", () => {
+  it('does not render LinkedIn link when PORTFOLIO_LINKEDIN_URL is empty', () => {
     if (LINKEDIN_SLUG) return;
     render(<Hero />);
-    expect(
-      screen.queryByRole("link", { name: /linkedin/i }),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /linkedin/i })).not.toBeInTheDocument();
   });
 });
