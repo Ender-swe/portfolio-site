@@ -13,7 +13,6 @@ import { Link, useLoaderData } from "react-router";
 import Markdown from "react-markdown";
 import type { Route } from "./+types/projects.$slug";
 import { GITHUB_USERNAME } from "~/load-context";
-import { L } from "node_modules/vitest/dist/chunks/reporters.d.B0uk8id2";
 
 // ---------------------------------------------------------------------------
 // Loader
